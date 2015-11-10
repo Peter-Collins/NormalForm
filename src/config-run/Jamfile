@@ -1,0 +1,15 @@
+# This software is Copyright (C) 2004-2008  Bristol University
+# and is released under the GNU General Public License version 2.
+C++ = g++ ;
+C++FLAGS += -O3 -I../cpp/ -L../cpp/ -L/usr/local/lib/ ;
+
+CPPFLAGS += -Wall -ansi -pedantic -D_GLIBCPP_CONCEPT_CHECKS ;
+LINKFLAGS += -lgmpxx -lgmp -lstdc++ ;
+
+Main SystemBathExample.exe : SystemBathExample.cpp ;
+LinkLibraries SystemBathExample.exe : ../cpp/libadbnfbasic ../cpp/libadbnflie ;
+LINKFLAGS on SystemBathExample.exe += -lgmpxx -lgmp -lcppunit -ldl ;
+
+Main MakeNormalForm.exe : MakeNormalForm.cpp ;
+LinkLibraries MakeNormalForm.exe : ../cpp/libadbnfbasic ../cpp/libadbnflie ;
+LINKFLAGS on MakeNormalForm.exe += -lgmpxx -lgmp -lcppunit -ldl ;

@@ -1,0 +1,20 @@
+# This software is Copyright (C) 2004-2008  Bristol University
+# and is released under the GNU General Public License version 2.
+
+C++ = g++ ;
+C++FLAGS += -O3 -I./ -L/usr/local/lib/ ;
+
+CPPFLAGS += -Wall -ansi -pedantic -D_GLIBCPP_CONCEPT_CHECKS ;
+LINKFLAGS += -lgmpxx -lgmp -lstdc++ ;
+
+Library libadbnfbasic : Types.cpp DefaultNumericalPrecision.cpp Utility.cpp Random.cpp MapPowers.cpp Polynomial.cpp SExprIO.cpp ;
+
+Library libadbnflie : PolynomialRingInterface.cpp PolynomialRing.cpp LieAlgebraBase.cpp ClassicalLieAlgebra.cpp SemiClassicalLieAlgebra.cpp LieAlgebraTestBase.cpp DepritTriangle.cpp DepritTriangleKnown.cpp CoordinateChange.cpp PolynomialIO.cpp ;
+
+Main TestRunner.exe : TestRunner.cpp ;
+LinkLibraries TestRunner.exe : libadbnfbasic libadbnflie ;
+LINKFLAGS on TestRunner.exe += -lgmpxx -lgmp -lcppunit -ldl ;
+
+#Main SExprIOTest.exe : SExprIOTest.cpp SExprIO.cpp ;
+#LINKFLAGS on SExprIOTest.exe += -lgmpxx -lgmp ;
+
