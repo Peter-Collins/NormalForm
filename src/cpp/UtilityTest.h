@@ -171,10 +171,14 @@ class UtilityTest : public CppUnit::TestFixture {
       CPPUNIT_ASSERT(intPow(n, 1) == n);
   }
   ///test recursion relation for integer powers for a range of values
+  ///9**10 is too big for 32 bit int
   void testIntPowRelation(void) {
     for (size_t n = 0; n < 10; ++n)
-      for (size_t p = 0; p < 10; ++p)
+      for (size_t p = 0; p < 9; ++p) {
+	///if (intPow(n, p+1) != n*intPow(n, p))
+	///  std::cerr << n << p << intPow(n, p+1) << std::endl;
         CPPUNIT_ASSERT(intPow(n, p+1) == n*intPow(n, p));
+      }
   }
   ///test basic properties of negative integers raised to powers
   void testIntPowNegative(void) {

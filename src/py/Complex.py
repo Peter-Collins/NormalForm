@@ -18,7 +18,11 @@ This enables fast visual inspection of tables of coefficients.
 
 """
 
-from MLab import array, Float
+## Automatically adapted for numpy.oldnumeric Dec 16, 2008 by alter_code1.py
+try:
+    from numpy.oldnumeric.mlab import array, Float
+except:
+    from MLab import array, Float
 
 def pretty_complex(com):
     """

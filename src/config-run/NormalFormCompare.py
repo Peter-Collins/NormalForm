@@ -33,9 +33,15 @@ from NormalFormIO import read_ascii_matrix, read_ascii_vec_polynomials
 from PolynomialRing import PolynomialRing
 from PolynomialRingIO import PolynomialRingIO
 
-from MLab import array, Complex, Float, zeros, eig
-from LinearAlgebra import determinant, inverse
-from Numeric import transpose, matrixmultiply
+## Automatically adapted for numpy.oldnumeric Dec 16, 2008 by alter_code1.py
+try:
+    from numpy.oldnumeric.mlab import array, Complex, Float, zeros, eig
+    from numpy.oldnumeric.linear_algebra import determinant, inverse
+    from numpy.oldnumeric import transpose, matrixmultiply
+except:
+    from MLab import array, Complex, Float, zeros, eig
+    from LinearAlgebra import determinant, inverse
+    from Numeric import transpose, matrixmultiply
 
 class NormalFormData:
 

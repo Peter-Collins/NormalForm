@@ -21,9 +21,15 @@ from Accuracy import trunc, trunc_tuple
 from Complex import real_part_of_vector
 from LieAlgebra import LieAlgebra
 from EigenValueVectorPair import EigenValueVectorPair
-from MLab import array, Complex, Float, zeros, eig
-from LinearAlgebra import determinant, inverse
-from Numeric import transpose, matrixmultiply
+## Automatically adapted for numpy.oldnumeric Dec 16, 2008 by alter_code1.py
+try:
+    from numpy.oldnumeric.mlab import array, Complex, Float, zeros, eig
+    from numpy.oldnumeric.linear_algebra import determinant, inverse
+    from numpy.oldnumeric import transpose, matrixmultiply
+except:
+    from MLab import array, Complex, Float, zeros, eig
+    from LinearAlgebra import determinant, inverse
+    from Numeric import transpose, matrixmultiply
 from Polynomial import Polynomial
 
 

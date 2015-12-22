@@ -175,8 +175,12 @@ def read_ascii_matrix(file_istr, is_xxpp_format):
     assert n_rows == len(matrix)
     return matrix
 
+## Automatically adapted for numpy.oldnumeric Dec 16, 2008 by alter_code1.py
 def write_file_mat(file_name, mat):
-    from MLab import array, Complex, Float, zeros, eig
+    try:
+        from numpy.oldnumeric.mlab import array, Complex, Float, zeros, eig
+    except:
+        from MLab import array, Complex, Float, zeros, eig
     # print array(mat, Float)
     res = []
     for r in mat:
@@ -229,7 +233,7 @@ def read_ascii_vec_polynomials(istream, is_xxpp_format, order=None):
 
 def write_file_vec_polynomials(file_name, poly_vec, is_xxpp_format):
     file_ostr = open(file_name, 'w')
-    n_vars = poly_vec[1].n_vars()
+    n_vars = poly_vec[0].n_vars()
     n_polys = len(poly_vec)
     file_ostr.write('%d\n'%n_vars)
     file_ostr.write('%d\n'%n_polys)

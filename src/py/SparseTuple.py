@@ -171,8 +171,8 @@ class SparseTuple:
         restriction; hash is used first, then equality when needed.
 
         """
-        return hash(tuple(self._i_to_e.iterkeys()) + tuple(self._i_to_e.itervalues()))
-        #return hash(self.to_tuple())
+        #return hash(tuple(self._i_to_e.iterkeys()) + tuple(self._i_to_e.itervalues()))
+        return hash(self.to_tuple())
 
     def __iter__(self):
         for i in xrange(self._len):

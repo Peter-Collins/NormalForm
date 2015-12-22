@@ -41,7 +41,11 @@ Waalkens, 2005, in terms of the Moyal product.
 import logging
 logger = logging.getLogger() #('LieAlgebra')
 
-from Numeric import zeros, Complex, matrixmultiply, Float, transpose
+## Automatically adapted for numpy.oldnumeric Dec 16, 2008 by alter_code1.py
+try:
+    from numpy.oldnumeric import zeros, Complex, matrixmultiply, Float, transpose
+except:
+    from Numeric import zeros, Complex, matrixmultiply, Float, transpose
 from Polynomial import Polynomial
 from Powers import Powers
 from math import sqrt

@@ -12,6 +12,7 @@
 #include <assert.h>
 #include <iostream>
 #include <iomanip>
+#include <stdlib.h>
 
 //project headers
 #include "Types.h"

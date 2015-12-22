@@ -8,7 +8,11 @@ import random
 from LieAlgebra import *
 from Powers import Powers
 from Polynomial import Polynomial
-from MLab import fabs
+## Automatically adapted for numpy.oldnumeric Dec 16, 2008 by alter_code1.py
+try:
+    from numpy.oldnumeric.mlab import fabs
+except:
+    from MLab import fabs
 
 from PolynomialTest import rand_poly
 from PolynomialTest import _eq as _poly_eq

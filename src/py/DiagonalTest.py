@@ -2,8 +2,14 @@
 # and is released under the GNU General Public License version 2.
 
 import unittest
-import MLab, LinearAlgebra
-from Numeric import matrixmultiply
+## Automatically adapted for numpy.oldnumeric Dec 16, 2008 by alter_code1.py
+try:
+    import numpy.oldnumeric.mlab as MLab
+    import numpy.oldnumeric.linear_algebra as LinearAlgebra
+    from numpy.oldnumeric import matrixmultiply
+except:
+    import MLab, LinearAlgebra
+    from Numeric import matrixmultiply
 from math import sqrt
 from Diagonal import Diagonalizer, Complexifier
 from Powers import Powers
@@ -54,7 +60,9 @@ class HamiltonsEquations(unittest.TestCase):
         J = diag.skew_symmetric_matrix()
         x = (1,2,3,4,5,6)
         y = matrixmultiply(J, x)
-        self.assertEquals(y, (2,-1,4,-3,6,-5))
+        # self.assertEquals(y, (2,-1,4,-3,6,-5))
+        z = y == (2,-1,4,-3,6,-5)
+        self.assertTrue(z.all())
 
     def test_cf_hamilton_linear_to_quadratic_matrix(self):
 

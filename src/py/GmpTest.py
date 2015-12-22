@@ -45,7 +45,8 @@ class BasicFloats(unittest.TestCase):
         base = 10
         one = mpf('1', bits, base)
         eps = mpf('1e-38', bits, base)
-        self.assert_(mpz(1.0/((one+eps)-one)) == 1e+38)
+        # self.assert_(mpz(1.0/((one+eps)-one)) == 1e+38)
+        self.assert_(mpz(1.0/((one+eps)-one)) == mpz(10)**38)
 
     def test_numbers_are_immutable_in_present_version(self):
         one = mpf('1.0', 32)

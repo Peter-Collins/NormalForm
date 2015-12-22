@@ -26,9 +26,22 @@ from Complex import real_part_of_vector, imag_part_of_vector
 from LieAlgebra import LieAlgebra
 from EigenValueVectorPair import EigenValueVectorPair
 from EigenSystem import EigenSystem
-from MLab import array, Complex, Float, zeros, eig
-from LinearAlgebra import determinant, inverse
-from Numeric import transpose, matrixmultiply
+## Automatically adapted for numpy.oldnumeric Dec 16, 2008 by alter_code1.py
+try:
+    from numpy.oldnumeric.mlab import array, Complex, Float, zeros
+    from numpy.oldnumeric.linear_algebra import determinant, inverse
+    from numpy.oldnumeric import transpose, matrixmultiply
+    # numpy.oldnumeric.eig seems to return eigvecs as the transpose of the MLab eig
+    from numpy.oldnumeric.mlab import eig as eigT
+    def eig(linear_matrix):
+        eigvals, eigvecs = eigT(linear_matrix)
+        eigvecs = transpose(eigvecs)
+        return eigvals, eigvecs
+
+except:
+    from MLab import array, Complex, Float, zeros, eig
+    from LinearAlgebra import determinant, inverse
+    from Numeric import transpose, matrixmultiply
 from Polynomial import Polynomial
 
 class Diagonalizer:

@@ -17,7 +17,11 @@ make our computations more meaningful.
 
 """
 
-from MLab import array, Complex
+## Automatically adapted for numpy.oldnumeric Dec 16, 2008 by alter_code1.py
+try:
+    from numpy.oldnumeric.mlab import array, Complex
+except:
+    from MLab import array, Complex
 
 def trunc(c, tolerance=1.0e-15):
     """

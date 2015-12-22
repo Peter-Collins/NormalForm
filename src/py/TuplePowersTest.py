@@ -148,7 +148,10 @@ class Examples(unittest.TestCase):
                 if p[var]==0:
                     self.assert_(not p(x)==0.0)
                 else:
-                    self.assertEquals(p(x), 0.0)
+                    # test for NaN, doubles may/will overflow
+                    px = p(x)
+                    if px==px:
+                        self.assertEquals(px, 0.0)
 
     def test_call_negative_counts(self):
         for eg in self.examples:

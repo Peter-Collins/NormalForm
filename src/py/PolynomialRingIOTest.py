@@ -14,6 +14,7 @@ from Powers import Powers
 from Polynomial import Polynomial
 from PolynomialRing import PolynomialRing
 from PolynomialRingIO import PolynomialRingIO
+#from numpy.oldnumeric.mlab import fabs
 #from MLab import fabs
 
 from PolynomialTest import rand_poly

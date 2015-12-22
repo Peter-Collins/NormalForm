@@ -76,7 +76,7 @@ class DefaultNumericalPrecisionTest : public CppUnit::TestFixture {
       {
         DefaultNumericalPrecision prec2(72);
         CPPUNIT_ASSERT(mpf_get_default_prec() >= 72);
-        CPPUNIT_ASSERT(mpf_get_default_prec() < 128);
+        CPPUNIT_ASSERT(mpf_get_default_prec() <= 128);
       }
       CPPUNIT_ASSERT(mpf_get_default_prec() >= 128);
       CPPUNIT_ASSERT(mpf_get_default_prec() < 256);
